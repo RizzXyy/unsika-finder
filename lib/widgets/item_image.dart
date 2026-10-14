@@ -38,12 +38,12 @@ class ItemImage extends StatelessWidget {
           width: width,
           height: height,
           fit: fit,
-          errorBuilder: (_, _, _) => _placeholder());
+          errorBuilder: (ctx, err, st) => _placeholder());
     }
     return Image.asset(p,
         width: width,
         height: height,
         fit: fit,
-        errorBuilder: (_, _, _) => _placeholder());
+        errorBuilder: (ctx, err, st) => _placeholder());
   }
 }

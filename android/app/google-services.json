@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "179669913661",
+    "project_id": "unsika-finder-2026",
+    "storage_bucket": "unsika-finder-2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179669913661:android:b89fd5d5d7ea08e9429a54",
+        "android_client_info": {
+          "package_name": "com.unsika.finder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179669913661-592lp1jj1gbqpjf5np73gnnj4cl20ckk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unsika.finder",
+            "certificate_hash": "f257fc74303b445f7704fee5d011219e5f93c2c5"
+          }
+        },
+        {
+          "client_id": "179669913661-4fcahrm8kco5284hhiqan58nclhjiefp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEE_u1eJuSD-TrYltBeepqCjkEs8Ao-Ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179669913661-4fcahrm8kco5284hhiqan58nclhjiefp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

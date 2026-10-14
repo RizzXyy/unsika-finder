@@ -253,7 +253,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             width: 110,
             height: 110,
             fit: BoxFit.contain,
-            errorBuilder: (_, _, _) => const Icon(Icons.smartphone_rounded,
+            errorBuilder: (ctx, err, st) => const Icon(Icons.smartphone_rounded,
                 size: 80, color: AppColors.maroon),
           ),
         ],

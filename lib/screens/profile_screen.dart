@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import '../core/app_colors.dart';
+import '../core/auth_service.dart';
 import 'login_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   final VoidCallback? onOpenHistory;
   const ProfileScreen({super.key, this.onOpenHistory});
-
-  // Data contoh. Nanti ganti dengan data akun yang login.
-  static const _name = 'Rizki Isma Ramadhani';
-  static const _npm = '2410631170000';
 
   void _soon(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -36,6 +33,8 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
     if (yes == true && context.mounted) {
+      await AuthService.logout();
+      if (!context.mounted) return;
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (_) => const LoginScreen()),
@@ -55,6 +54,11 @@ class ProfileScreen extends StatelessWidget {
       (Icons.info_outline, 'Tentang Aplikasi', () => _soon(context)),
     ];
 
+    final user = AuthService.currentUser;
+    final displayName = user?.displayName ??
+        (user?.email != null ? user!.email!.split('@').first : 'Mahasiswa Unsika');
+    final emailOrNpm = user?.email ?? 'Tidak ada email';
+
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -63,29 +67,32 @@ class ProfileScreen extends StatelessWidget {
             const Text('Profil',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800)),
             const SizedBox(height: 16),
-            const Row(
+            Row(
               children: [
                 CircleAvatar(
                   radius: 40,
                   backgroundColor: AppColors.maroonDark,
-                  child: Icon(Icons.person, size: 56, color: Colors.white),
+                  backgroundImage: user?.photoURL != null ? NetworkImage(user!.photoURL!) : null,
+                  child: user?.photoURL == null
+                      ? const Icon(Icons.person, size: 56, color: Colors.white)
+                      : null,
                 ),
-                SizedBox(width: 18),
+                const SizedBox(width: 18),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(_name,
-                          style: TextStyle(
-                              fontSize: 15,
+                      Text(displayName,
+                          style: const TextStyle(
+                              fontSize: 16,
                               fontWeight: FontWeight.w800,
                               color: Color(0xFF0F2A33))),
-                      SizedBox(height: 2),
-                      Text(_npm,
+                      const SizedBox(height: 4),
+                      Text(emailOrNpm,
                           style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w800,
-                              color: Color(0xFF0F2A33))),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey.shade600)),
                     ],
                   ),
                 ),

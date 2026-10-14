@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../core/app_colors.dart';
 import '../models/lost_item.dart';
 import '../widgets/page_header.dart';
 
@@ -126,14 +125,14 @@ class _DetailScreenState extends State<DetailScreen> {
                     src,
                     fit: BoxFit.cover,
                     width: double.infinity,
-                    errorBuilder: (_, _, _) => _placeholder(),
+                    errorBuilder: (ctx, err, st) => _placeholder(),
                   );
                 }
                 return Image.network(
                   src,
                   fit: BoxFit.cover,
                   width: double.infinity,
-                  errorBuilder: (_, _, _) => _placeholder(),
+                  errorBuilder: (ctx, err, st) => _placeholder(),
                 );
               },
             ),

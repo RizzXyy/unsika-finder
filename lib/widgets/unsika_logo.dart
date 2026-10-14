@@ -11,7 +11,7 @@ class UnsikaLogo extends StatelessWidget {
       'assets/images/logo.png',
       width: size,
       height: size,
-      errorBuilder: (_, _, _) =>
+      errorBuilder: (ctx, err, st) =>
           Icon(Icons.school, size: size, color: const Color(0xFFFFD400)),
     );
   }

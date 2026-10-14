@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/login_screen.dart';
-import '../../core/app_colors.dart';
-import '../../widgets/unsika_logo.dart';
+import '../core/app_colors.dart';
+import '../core/auth_service.dart';
+import '../widgets/unsika_logo.dart';
+import 'login_screen.dart';
+import 'main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,8 +19,11 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 2), () {
       if (!mounted) return;
+      final target = AuthService.currentUser != null
+          ? const MainScreen()
+          : const LoginScreen();
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => const LoginScreen()));
+          context, MaterialPageRoute(builder: (_) => target));
     });
   }
 

@@ -92,7 +92,7 @@ class _ReportScreenState extends State<ReportScreen> {
 
             _label('Kategori Barang'),
             DropdownButtonFormField<String>(
-              initialValue: _category,
+              value: _category,
               icon: const Icon(Icons.keyboard_arrow_down_rounded),
               decoration: _decoration('Pilih Kategori'),
               items: _categories
